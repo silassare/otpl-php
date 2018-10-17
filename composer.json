@@ -1,0 +1,29 @@
+{
+  "name": "silassare/otpl",
+  "version": "1.1.6",
+  "description": "A simple template system write once run everywhere!",
+  "keywords": [
+    "otpl",
+    "template",
+    "otemplate"
+  ],
+  "homepage": "https://github.com/silassare/otpl-php#readme",
+  "archive": {
+    "exclude": [
+      "/test"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "OTpl\\": "src"
+    }
+  },
+  "license": "ISC",
+  "authors": [
+    {
+      "name": "Emile Silas Sare",
+      "email": "emile.silas@gmail.com",
+      "homepage": "https://github.com/silassare"
+    }
+  ]
+}
