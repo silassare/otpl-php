@@ -1,4 +1,9 @@
-### v1.1.6 (2018-17-10)
+### v1.1.7 (2019-14-03)
+
+ - cache directory creation error fixed
+ - license updated to MIT
+ 
+ ### v1.1.6 (2018-17-10)
 
  - php source moved to a new project repo
  - php namespace added
