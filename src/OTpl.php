@@ -15,7 +15,7 @@
 	use OTpl\Plugins\Utils;
 
 	define('OTPL_ROOT_DIR', __DIR__ . DIRECTORY_SEPARATOR);
-	define('OTPL_ASSETS_DIR', OTPL_ROOT_DIR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
+	define('OTPL_ASSETS_DIR', OTPL_ROOT_DIR . '..' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
 
 	final class OTpl
 	{
