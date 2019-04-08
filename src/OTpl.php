@@ -19,7 +19,7 @@
 
 	final class OTpl
 	{
-		const OTPL_VERSION          = "1.1.7";
+		const OTPL_VERSION          = "1.1.8";
 		const OTPL_VERSION_NAME     = "OTpl php-" . self::OTPL_VERSION;
 		const OTPL_COMPILE_DIR_NAME = "otpl_done" . DIRECTORY_SEPARATOR . self::OTPL_VERSION;
 
@@ -142,7 +142,7 @@
 			$dst_dir .= DIRECTORY_SEPARATOR . self::OTPL_COMPILE_DIR_NAME;
 
 			if (!file_exists($dst_dir)) {
-				mkdir($dst_dir, 0777,true);
+				mkdir($dst_dir, 0777, true);
 			}
 
 			$this->dst_path = $dst_dir . DIRECTORY_SEPARATOR . $out_file_name . '.php';
@@ -288,6 +288,25 @@
 		}
 
 		/**
+		 * Replace first search occurrence.
+		 *
+		 * @param string $search
+		 * @param string $replace
+		 * @param string $subject
+		 *
+		 * @return string
+		 */
+		private static function replaceFirst($search, $replace, $subject)
+		{
+			$pos = strpos($subject, $search);
+			if ($pos !== false) {
+				return substr_replace($subject, $replace, $pos, strlen($search));
+			}
+
+			return $subject;
+		}
+
+		/**
 		 * @param callable[] $workers
 		 * @param string     $code
 		 *
@@ -302,10 +321,14 @@
 
 				if (is_callable($fn)) {
 					while (preg_match($reg, $code, $in)) {
-						$found = $in[0];
-						$args  = [$in, $this];
-						$res   = call_user_func_array($fn, $args);
-						$code  = str_replace($found, $res, $code);
+						$found   = $in[0];
+						$args    = [$in, $this];
+						$replace = call_user_func_array($fn, $args);
+						// replace only the first
+						// str_replace may lead to error
+						// for example: $.my_var is different from $.my_var_bis
+
+						$code = self::replaceFirst($found, $replace, $code);
 					}
 				}
 			}

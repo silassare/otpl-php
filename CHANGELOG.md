@@ -1,3 +1,7 @@
+### v1.1.8 (2019-08-04)
+
+ - str_replace bug fix
+
 ### v1.1.7 (2019-14-03)
 
  - cache directory creation error fixed
