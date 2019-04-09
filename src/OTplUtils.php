@@ -167,11 +167,12 @@
 			$src_dir = $root->getContext()
 							->getSrcDir();
 
-			$root_dir = $src_dir ? $src_dir : OTPL_ROOT_DIR;
-			$url      = OTplResolver::resolve($root_dir, $url);
+			$root_dir  = $src_dir ? $src_dir : OTPL_ROOT_DIR;
+			$url       = OTplResolver::resolve($root_dir, $url);
+			$root_data = $root->getData();
 
-			if ($inject_root AND is_array($root) AND is_array($data)) {
-				$data = array_replace($root, $data);
+			if ($inject_root AND is_array($root_data) AND is_array($data)) {
+				$data = array_replace($root_data, $data);
 			}
 
 			if (self::isTplFile($url)) {
