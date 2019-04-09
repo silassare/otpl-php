@@ -1,3 +1,8 @@
+### v1.1.9 (2019-09-04)
+
+ - It is now possible to inject parent root data to imported template
+    - if both parent data and injected data are array
+
 ### v1.1.8 (2019-08-04)
 
  - str_replace bug fix

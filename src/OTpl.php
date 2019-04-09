@@ -19,7 +19,7 @@
 
 	final class OTpl
 	{
-		const OTPL_VERSION          = "1.1.8";
+		const OTPL_VERSION          = "1.1.9";
 		const OTPL_VERSION_NAME     = "OTpl php-" . self::OTPL_VERSION;
 		const OTPL_COMPILE_DIR_NAME = "otpl_done" . DIRECTORY_SEPARATOR . self::OTPL_VERSION;
 

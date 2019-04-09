@@ -9,11 +9,18 @@
 
 	/**
 	 * Class OTplData
+	 *
 	 * @package OTpl
 	 */
 	final class OTplData
 	{
+		/**
+		 * @var mixed
+		 */
 		private $data;
+		/**
+		 * @var \OTpl\OTpl
+		 */
 		private $context;
 
 		/**

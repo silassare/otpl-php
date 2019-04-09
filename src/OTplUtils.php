@@ -9,6 +9,7 @@
 
 	/**
 	 * Class OTplUtils
+	 *
 	 * @package OTpl
 	 */
 	final class OTplUtils
@@ -149,20 +150,29 @@
 		}
 
 		/**
-		 * @param $root
-		 * @param $url
-		 * @param $data
+		 * @param \OTpl\OTplData $root
+		 * @param string         $url
+		 * @param mixed          $data
+		 * @param bool           $inject_root
 		 *
 		 * @return bool|string
 		 * @throws \Exception
 		 */
-		public static function importCustom($root, $url, $data)
+		public static function importCustom(OTplData $root, $url, $data, $inject_root = false)
 		{
 			if (!is_string($url) OR !strlen($url)) {
 				throw new \Exception("OTPL : nothing to import, empty url (root: `$root`)");
 			}
 
-			$url = OTplResolver::resolve($root, $url);
+			$src_dir  = $root->getContext()
+							 ->getSrcDir();
+
+			$root_dir = $src_dir ? $src_dir : OTPL_ROOT_DIR;
+			$url      = OTplResolver::resolve($root_dir, $url);
+
+			if ($inject_root AND is_array($root) AND is_array($data)) {
+				$data = array_replace($root, $data);
+			}
 
 			if (self::isTplFile($url)) {
 				return self::importExec($url, $data);
