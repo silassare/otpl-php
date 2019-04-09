@@ -161,11 +161,11 @@
 		public static function importCustom(OTplData $root, $url, $data, $inject_root = false)
 		{
 			if (!is_string($url) OR !strlen($url)) {
-				throw new \Exception("OTPL : nothing to import, empty url (root: `$root`)");
+				throw new \Exception("OTPL : nothing to import, empty url.");
 			}
 
-			$src_dir  = $root->getContext()
-							 ->getSrcDir();
+			$src_dir = $root->getContext()
+							->getSrcDir();
 
 			$root_dir = $src_dir ? $src_dir : OTPL_ROOT_DIR;
 			$url      = OTplResolver::resolve($root_dir, $url);
