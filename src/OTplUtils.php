@@ -158,7 +158,7 @@
 		 * @return bool|string
 		 * @throws \Exception
 		 */
-		public static function importCustom(OTplData $root, $url, $data, $inject_root = false)
+		public static function importCustom(OTplData $root, $url, $data, $inject_root = true)
 		{
 			if (!is_string($url) OR !strlen($url)) {
 				throw new \Exception("OTPL : nothing to import, empty url.");
