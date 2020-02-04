@@ -17,7 +17,6 @@
 		const OTPL_STR_KEY_NAME_REG = "#^[a-z_][a-z0-9_]*$#i";
 		const OTPL_ROOT_REF         = "\$otpl_root";
 		const OTPL_DATA_REF         = "\$otpl_data";
-		const OTPL_FILE_EXT         = "#\.otpl$#";
 
 		/**
 		 * @var callable[]
@@ -39,8 +38,7 @@
 		 */
 		public static function isTplFile($url)
 		{
-			// TODO not safe
-			return preg_match(self::OTPL_FILE_EXT, $url);
+			return file_exists($url);
 		}
 
 		/**
