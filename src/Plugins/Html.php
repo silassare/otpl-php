@@ -1,58 +1,60 @@
 <?php
+
+/**
+ * Copyright (c) 2017-present, Emile Silas Sare
+ *
+ * This file is part of OTpl package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace OTpl\Plugins;
+
+use OTpl\OTplUtils;
+
+/**
+ * Class Html
+ */
+final class Html
+{
 	/**
-	 * Copyright (c) Emile Silas Sare <emile.silas@gmail.com>
+	 * @param $data
 	 *
-	 * This file is part of Otpl.
+	 * @return string
 	 */
-
-	namespace OTpl\Plugins;
-
-	use OTpl\OTplUtils;
-
-	/**
-	 * Class Html
-	 * @package OTpl\Plugins
-	 */
-	final class Html
+	public static function setAttr($data)
 	{
-		/**
-		 * @param $data
-		 *
-		 * @return string
-		 */
-		public static function setAttr($data)
-		{
-			$arr = [];
+		$arr = [];
 
-			foreach ($data as $key => $val) {
-				$attr = $key;
+		foreach ($data as $key => $val) {
+			$attr = $key;
 
-				if (strlen($val)) {
-					$attr .= '="' . self::Escape($val) . '"';
-				}
-
-				array_push($arr, $attr);
+			if (\strlen($val)) {
+				$attr .= '="' . self::Escape($val) . '"';
 			}
 
-			return join($arr, ' ');
+			\array_push($arr, $attr);
 		}
 
-		/**
-		 * @param string $str
-		 *
-		 * @return string
-		 */
-		public static function escape($str)
-		{
-			$str = htmlentities($str, ENT_QUOTES, 'UTF-8');
-
-			return str_replace("&amp;", "&", $str);
-		}
-
-		public static function register()
-		{
-
-			OTplUtils::addPlugin('HtmlSetAttr', [self::class, 'setAttr']);
-			OTplUtils::addPlugin('HtmlEscape', [self::class, 'escape']);
-		}
+		return \implode(' ', $arr);
 	}
+
+	/**
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	public static function escape($str)
+	{
+		$str = \htmlentities($str, \ENT_QUOTES, 'UTF-8');
+
+		return \str_replace('&amp;', '&', $str);
+	}
+
+	public static function register()
+	{
+		OTplUtils::addPlugin('HtmlSetAttr', [self::class, 'setAttr']);
+		OTplUtils::addPlugin('HtmlEscape', [self::class, 'escape']);
+	}
+}

@@ -1,42 +1,45 @@
 <?php
+
+/**
+ * Copyright (c) 2017-present, Emile Silas Sare
+ *
+ * This file is part of OTpl package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace OTpl\Features;
+
+use OTpl\OTpl;
+use OTpl\OTplUtils;
+
+/**
+ * Class Import
+ */
+final class Import
+{
+	// @import(url [,data]) replacement
+	// const REG = '#@import\([\s]*?[\'"]?(.*?)[\'"]?(?:[\s]*,[\s]*(.+?)[\s]*)?[\s]*\)#';
+	const REG = '#@import\([\s]*?([\'"]?(.*?)[\'"]?)(?:[\s]*,[\s]*(.+?)[\s]*)?[\s]*\)#';
+
 	/**
-	 * Copyright (c) Emile Silas Sare <emile.silas@gmail.com>
+	 * @param array      $in
+	 * @param \OTpl\OTpl $context
 	 *
-	 * This file is part of Otpl.
-	 */
-
-	namespace OTpl\Features;
-
-	use OTpl\OTpl;
-	use OTpl\OTplUtils;
-
-	/**
-	 * Class Import
+	 * @throws \Exception
 	 *
-	 * @package OTpl\Features
+	 * @return string
 	 */
-	final class Import
+	public static function exec(array $in, OTpl $context)
 	{
-		// @import(url [,data]) replacement
-		// const REG = '#@import\([\s]*?[\'"]?(.*?)[\'"]?(?:[\s]*,[\s]*(.+?)[\s]*)?[\s]*\)#';
-		const REG = '#@import\([\s]*?([\'"]?(.*?)[\'"]?)(?:[\s]*,[\s]*(.+?)[\s]*)?[\s]*\)#';
+		$match = $in[0];
 
-		/**
-		 * @param array      $in
-		 * @param \OTpl\OTpl $context
-		 *
-		 * @return string
-		 * @throws \Exception
-		 */
-		public static function exec(array $in, OTpl $context)
-		{
-			$match     = $in[0];
-
-			return ' OTplUtils::importCustom( $otpl_root, ' . preg_replace("#^@import\([\s]*#", '', $match);
-		}
-
-		public static function register()
-		{
-			OTplUtils::addReplacer(self::REG, [self::class, 'exec']);
-		}
+		return ' OTplUtils::importCustom( $otpl_root, ' . \preg_replace("#^@import\([\s]*#", '', $match);
 	}
+
+	public static function register()
+	{
+		OTplUtils::addReplacer(self::REG, [self::class, 'exec']);
+	}
+}

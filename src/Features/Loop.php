@@ -1,45 +1,47 @@
 <?php
+
+/**
+ * Copyright (c) 2017-present, Emile Silas Sare
+ *
+ * This file is part of OTpl package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace OTpl\Features;
+
+use OTpl\OTplUtils;
+
+/**
+ * Class Loop
+ */
+final class Loop
+{
+	const REG = "#loop[\s]*\([\s]*(.+?)[\s]*\:[\s]*([$][a-zA-Z0-9_]+)[\s]*(?:\:[\s]*([$][a-zA-Z0-9_]+)[\s]*)?\)[\s]*\{#";
+
 	/**
-	 * Copyright (c) Emile Silas Sare <emile.silas@gmail.com>
+	 * @param array $in
 	 *
-	 * This file is part of Otpl.
+	 * @return string
 	 */
-
-	namespace OTpl\Features;
-
-	use OTpl\OTplUtils;
-
-	/**
-	 * Class Loop
-	 * @package OTpl\Features
-	 */
-	final class Loop
+	public static function exec(array $in)
 	{
-		const REG = "#loop[\s]*\([\s]*(.+?)[\s]*\:[\s]*([$][a-zA-Z0-9_]+)[\s]*(?:\:[\s]*([$][a-zA-Z0-9_]+)[\s]*)?\)[\s]*\{#";
+		$data = $in[1];
+		$key  = $in[2];
 
-		/**
-		 * @param array $in
-		 *
-		 * @return string
-		 */
-		public static function exec(array $in)
-		{
-			$data = $in[1];
-			$key  = $in[2];
+		if (isset($in[3])) {
+			$value = $in[3];
 
-			if (isset($in[3])) {
-				$value = $in[3];
-
-				return "foreach($data as $key=>$value){";
-			} else {
-				$value = $key;
-
-				return "foreach($data as $value){";
-			}
+			return "foreach($data as $key=>$value){";
 		}
+		$value = $key;
 
-		public static function register()
-		{
-			OTplUtils::addReplacer(self::REG, [self::class, 'exec']);
-		}
+		return "foreach($data as $value){";
 	}
+
+	public static function register()
+	{
+		OTplUtils::addReplacer(self::REG, [self::class, 'exec']);
+	}
+}
