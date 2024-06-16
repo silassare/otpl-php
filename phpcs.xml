@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<ruleset name="otpl-php">
-	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/ignore/*</exclude-pattern>
-	<exclude-pattern>*/test/*</exclude-pattern>
-	<exclude-pattern>*/assets/*</exclude-pattern>
-	<rule ref="./oliup.phpcs.xml" />
-</ruleset>
