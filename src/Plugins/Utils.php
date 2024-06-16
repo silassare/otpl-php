@@ -9,10 +9,24 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2017-present, Emile Silas Sare.
+ *
+ * This file is part of OTpl package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace OTpl\Plugins;
 
 use OTpl\OTplUtils;
 
+/**
+ * Class Utils.
+ */
 final class Utils
 {
 	/**
@@ -21,7 +35,7 @@ final class Utils
 	 *
 	 * @return string
 	 */
-	public static function join($items, $sep = '')
+	public static function join(array $items, string $sep = ''): string
 	{
 		return \implode($sep, $items);
 	}
@@ -32,7 +46,7 @@ final class Utils
 	 *
 	 * @return string
 	 */
-	public static function concat($a, $b)
+	public static function concat(string $a, string $b): string
 	{
 		return self::join(\func_get_args(), '');
 	}
@@ -42,7 +56,7 @@ final class Utils
 	 *
 	 * @return array
 	 */
-	public static function keys(array $data)
+	public static function keys(array $data): array
 	{
 		return \array_keys($data);
 	}
@@ -52,7 +66,7 @@ final class Utils
 	 *
 	 * @return array
 	 */
-	public static function values(array $data)
+	public static function values(array $data): array
 	{
 		return \array_values($data);
 	}
@@ -62,7 +76,7 @@ final class Utils
 	 *
 	 * @return int
 	 */
-	public static function length($value)
+	public static function length(mixed $value): int
 	{
 		if (\is_string($value)) {
 			return \strlen($value);
@@ -76,18 +90,18 @@ final class Utils
 	}
 
 	/**
-	 * @param bool   $exp
+	 * @param mixed  $exp
 	 * @param string $a
 	 * @param string $b
 	 *
 	 * @return string
 	 */
-	public static function ifCond($exp, $a = '', $b = '')
+	public static function ifCond(mixed $exp, string $a = '', string $b = ''): string
 	{
 		return $exp ? $a : $b;
 	}
 
-	public static function register()
+	public static function register(): void
 	{
 		OTplUtils::addPlugin('join', [self::class, 'join']);
 		OTplUtils::addPlugin('concat', [self::class, 'concat']);

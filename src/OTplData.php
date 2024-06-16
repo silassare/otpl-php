@@ -9,39 +9,50 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2017-present, Emile Silas Sare.
+ *
+ * This file is part of OTpl package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace OTpl;
 
 /**
- * Class OTplData
+ * Class OTplData.
  */
 final class OTplData
 {
 	/**
 	 * @var mixed
 	 */
-	private $data;
+	private mixed $data;
 
 	/**
-	 * @var \OTpl\OTpl
+	 * @var OTpl
 	 */
-	private $context;
+	private OTpl $context;
 
 	/**
 	 * OTplData constructor.
 	 *
-	 * @param mixed      $data
-	 * @param \OTpl\OTpl $context
+	 * @param mixed $data
+	 * @param OTpl  $context
 	 */
-	public function __construct($data, OTpl $context)
+	public function __construct(mixed $data, OTpl $context)
 	{
 		$this->data    = $data;
 		$this->context = $context;
 	}
 
 	/**
-	 * @return \OTpl\OTpl
+	 * @return OTpl
 	 */
-	public function getContext()
+	public function getContext(): OTpl
 	{
 		return $this->context;
 	}
@@ -49,7 +60,7 @@ final class OTplData
 	/**
 	 * @return mixed
 	 */
-	public function getData()
+	public function getData(): mixed
 	{
 		return $this->data;
 	}
