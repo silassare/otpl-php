@@ -1,0 +1,42 @@
+
+
+
+---------------------------------------------
+		import: test-var-1.otpl
+---------------------------------------------
+		<span>My name is Franck and i'm 23</span>
+		
+
+---------------------------------------------
+		import: simple_file_1.txt
+---------------------------------------------
+	I’m a full stack developer. I spend my whole day, practically every day, experimenting with:
+- JavaScript,
+- Java,
+- PHP,
+- HTML,
+- CSS,
+and much more.
+
+
+---------------------------------------------
+		import: simple_file_2.txt
+---------------------------------------------
+	
+I’m curious, and I enjoy work that challenges me to learn something new and stretch in a different direction.
+
+I do my best to stay on top of changes in the state of the art so that I can meet challenges with tools well suited to what I do.
+
+
+
+---------------------------------------------
+		test: HtmlSetAttr
+---------------------------------------------
+<label for="name-field" >Your name:</label>45    
+<input id="name-field" type="text" placeholder="Name" value="toto" />
+
+---------------------------------------------
+		test: custom import
+---------------------------------------------
+custom import file name is: ./../custom-import.otpl
+custom import year: 2017

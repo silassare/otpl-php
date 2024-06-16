@@ -1,0 +1,2 @@
+<label for="name-field" >Your name:</label>45    
+<input id="name-field" type="text" placeholder="Name" value="toto" />

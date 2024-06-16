@@ -1,0 +1,18 @@
+<select>
+
+	<option value="0" >Apple</option>
+
+	<option value="1" >HTC</option>
+
+	<option value="2" >Samsung</option>
+
+</select>
+<ul>
+
+	<li>Apple</li>
+
+	<li>HTC</li>
+
+	<li>Samsung</li>
+
+</ul>
