@@ -1,6 +1,6 @@
 {
   "name": "silassare/otpl",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "A simple template system write once run everywhere!",
   "keywords": [
     "otpl",
@@ -10,25 +10,24 @@
   "homepage": "https://github.com/silassare/otpl-php#readme",
   "archive": {
     "exclude": [
-      "/test"
+      "/tests"
     ]
   },
   "autoload": {
     "psr-4": {
-      "OTpl\\": "src"
+      "OTpl\\": "src",
+      "OTpl\\Tests\\": "tests"
     }
   },
   "require": {
-    "php": ">=5.6.0"
+    "php": ">=8.1",
+    "silassare/php-utils": "^1.0.1"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.16",
-    "squizlabs/php_codesniffer": "^3.5",
-    "phpcompatibility/php-compatibility": "*"
-  },
-  "scripts": {
-    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
-    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
+    "roave/security-advisories": "dev-latest",
+    "oliup/oliup-cs-php": "dev-main",
+    "phpunit/phpunit": "^9.5.26",
+    "vimeo/psalm": "^4.30"
   },
   "license": "MIT",
   "authors": [
