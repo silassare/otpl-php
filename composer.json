@@ -15,8 +15,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"OTpl\\": "src",
-			"OTpl\\Tests\\": "tests"
+			"OTpl\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"OTpl\\Tests\\": "tests/"
 		}
 	},
 	"require": {
