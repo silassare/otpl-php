@@ -1,11 +1,16 @@
 # OTPL
 
+> [!WARNING]
+> **This project is deprecated and no longer maintained.**
+> The repository has been archived. No further updates, bug fixes, or support will be provided.
+>
+> We recommend migrating to **[silassare/blate](https://github.com/silassare/blate)** as a replacement.
+
 A simple template system, write once run everywhere with JavaScript (nodejs or in browser ), PHP ...
 
-## Your contributions are welcomed
+## Related projects
 
--   [JS Project](https://github.com/silassare/otpl-js/)
--   [PHP Project](https://github.com/silassare/otpl-php/)
+- [JS Project](https://github.com/silassare/otpl-js/)
 
 ## Setup with composer
 

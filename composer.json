@@ -1,7 +1,7 @@
 {
 	"name": "silassare/otpl",
-	"version": "2.0.0",
-	"description": "A simple template system write once run everywhere!",
+	"version": "2.0.1",
+	"description": "[DEPRECATED] A simple template system write once run everywhere! Use silassare/blate instead: https://github.com/silassare/blate",
 	"keywords": [
 		"otpl",
 		"template",
