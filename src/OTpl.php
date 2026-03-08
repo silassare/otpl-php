@@ -42,7 +42,7 @@ if (!\defined('OTPL_ROOT_DIR')) {
  */
 final class OTpl
 {
-	public const OTPL_VERSION = '1.1.9';
+	public const OTPL_VERSION = '2.0.1';
 
 	public const OTPL_VERSION_NAME = 'OTpl php-' . self::OTPL_VERSION;
 
@@ -412,7 +412,7 @@ final class OTpl
 		$tpl = \preg_replace(self::OTPL_CLEAN_PHP_TAG_REG, "<?php echo '$1';?>", $tpl);
 		$tpl = \preg_replace(self::OTPL_CLEAN_LEFT_REG, '$1$2', $tpl);
 
-		return \preg_replace(self::OTPL_PRESERVE_NEWLINE_REG, "$1<?php echo '$2';?>", $tpl);
+		return (string) \preg_replace(self::OTPL_PRESERVE_NEWLINE_REG, "$1<?php echo '$2';?>", $tpl);
 	}
 }
 
